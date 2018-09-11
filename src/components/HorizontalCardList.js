@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
 const HorizontalCardList = ({
   listLabel,
   listItems,
+  navigate,
 }) => (
   <View style={styles.root}>
     <Text style={styles.label}>
@@ -45,6 +46,7 @@ const HorizontalCardList = ({
           source={item.source}
           title={item.title}
           subtitle={item.subtitle}
+          navigate={navigate}
         />
       ))}
     </ScrollView>
@@ -54,6 +56,7 @@ const HorizontalCardList = ({
 HorizontalCardList.propTypes = {
   listLabel: PropTypes.string.isRequired,
   listItems: PropTypes.arrayOf(PropTypes.object),
+  navigate: PropTypes.func.isRequired,
 };
 
 export default HorizontalCardList;

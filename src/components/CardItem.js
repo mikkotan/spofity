@@ -37,8 +37,9 @@ const CardItem = ({
   source,
   title,
   subtitle,
+  navigate,
 }) => (
-  <TouchableHighlight onPress={() => alert(`${title} pressed`)}>
+  <TouchableHighlight onPress={() => navigate('Media')}>
     <View style={styles.wrapper}>
       <Image
         source={source}
@@ -62,6 +63,7 @@ CardItem.propTypes = {
   source: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  navigate: PropTypes.func.isRequired,
 };
 
 CardItem.defaultProps = {

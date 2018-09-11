@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = () => (
+const HomeScreen = ({ navigation: { navigate } }) => (
   <Container style={styles.root}>
     <Header style={styles.header}>
       <Body style={styles.body}>
@@ -52,6 +52,7 @@ const HomeScreen = () => (
             key={playlist.id}
             listLabel={playlist.label}
             listItems={playlist.items}
+            navigate={navigate}
           />
         ))}
       </View>
