@@ -9,6 +9,8 @@ const BrowseStackNavigator = createStackNavigator({
       header: null,
     },
   },
+}, {
+  initialRouteName: 'Browse'
 });
 
 export default BrowseStackNavigator;

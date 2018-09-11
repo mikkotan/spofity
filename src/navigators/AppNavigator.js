@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { createBottomTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import BrowseScreen from '../screens/BrowseScreen';
-import HomeScreen from '../screens/HomeScreen';
 import LibraryScreen from '../screens/LibraryScreen';
 import RadioScreen from '../screens/RadioScreen';
 import SearchScreen from '../screens/SearchScreen';
+
+import HomeStackNavigator from './HomeStackNavigator';
+import BrowseStackNavigator from './BrowseStackNavigator';
 
 const CustomTabIcon = (name, size) => {
   const icon = ({ tintColor }) => (
@@ -27,14 +28,14 @@ const CustomTabIcon = (name, size) => {
 
 const AppNavigator = createBottomTabNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: HomeStackNavigator,
     navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: CustomTabIcon('ios-home', 22)
     }
   },
   Browse: {
-    screen: BrowseScreen,
+    screen: BrowseStackNavigator,
     navigationOptions: {
       tabBarLabel: 'Browse',
       tabBarIcon: CustomTabIcon('ios-albums', 22)

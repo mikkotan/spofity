@@ -38,7 +38,7 @@ const CardItem = ({
   title,
   subtitle,
 }) => (
-  <TouchableHighlight>
+  <TouchableHighlight onPress={() => alert(`${title} pressed`)}>
     <View style={styles.wrapper}>
       <Image
         source={source}
