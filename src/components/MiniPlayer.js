@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
   Left,
@@ -48,39 +48,64 @@ const styles = StyleSheet.create({
   }
 })
 
-const MiniPlayer = () => (
-  <View style={styles.wrapper}>
-    <View style={styles.content}>
-      <Left style={styles.left}>
-        <Icon
-          name="ios-arrow-up"
-          size={20}
-          color="white"
-        />
-      </Left>
-      <View style={styles.trackDetails}>
-        <View style={styles.trackInfo}>
-          <Text style={styles.trackName}>Parallel Universe </Text>
-          <Text style={styles.trackSinger}>• Clara Benin</Text>
-        </View>
-        <View style={styles.trackDevice}>
-          <Icon
-            name="ios-desktop"
-            size={16}
-            color="white"
-          />
-          <Text style={styles.trackName}> Available Devices</Text>
+class MiniPlayer extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      playing: false,
+    };
+  }
+
+  togglePlay() {
+    const { playing } = this.state;
+
+    this.setState({
+      playing: !playing,
+    })
+  }
+
+  render() {
+    const { playing } = this.state;
+    const iconName = playing ? 'ios-pause' : 'ios-play';
+
+    return (
+      <View style={styles.wrapper}>
+        <View style={styles.content}>
+          <Left style={styles.left}>
+            <Icon
+              name="ios-arrow-up"
+              size={20}
+              color="white"
+            />
+          </Left>
+          <View style={styles.trackDetails}>
+            <View style={styles.trackInfo}>
+              <Text style={styles.trackName}>Parallel Universe </Text>
+              <Text style={styles.trackSinger}>• Clara Benin</Text>
+            </View>
+            <View style={styles.trackDevice}>
+              <Icon
+                name="ios-desktop"
+                size={16}
+                color="white"
+              />
+              <Text style={styles.trackName}> Available Devices</Text>
+            </View>
+          </View>
+          <Right style={styles.right}>
+            <TouchableHighlight onPress={() => this.togglePlay()}>
+              <Icon
+                name={iconName}
+                size={20}
+                color="white"
+              />
+            </TouchableHighlight>
+          </Right>
         </View>
       </View>
-      <Right style={styles.right}>
-        <Icon
-          name="ios-play"
-          size={20}
-          color="white"
-        />
-      </Right>
-    </View>
-  </View>
-);
+    )
+  }
+}
 
 export default MiniPlayer;
