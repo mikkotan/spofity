@@ -68,6 +68,7 @@ const AppNavigator = createBottomTabNavigator({
     inactiveBackgroundColor: '#222326',
     activeTintColor: 'white',
     activeBackgroundColor: '#222326',
+    borderTopWidth: 1,
   }
 });
 

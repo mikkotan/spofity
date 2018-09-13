@@ -12,6 +12,8 @@ import {
 } from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import ListItem from '../components/ListItem';
+
 const styles = StyleSheet.create({
   root: {
     flex: 1,
@@ -28,9 +30,13 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'column'
   },
+  // content: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  // },
   text: {
     color: 'white',
   },
@@ -40,12 +46,18 @@ const styles = StyleSheet.create({
 });
 
 class MediaScreen extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   navigateBack() {
     const { goBack } = this.props.navigation;
     goBack();
   }
 
   render() {
+    const { data } = this.props.navigation.state.params;
+
     return (
       <Container style={styles.root}>
         <Header style={styles.header}>
@@ -56,16 +68,35 @@ class MediaScreen extends Component {
           </Left>
           <Body style={styles.body}>
             <Text style={styles.text}>
-              Acoustic Hits
+              {data.title}
             </Text>
           </Body>
           <Right style={styles.flex}>
-            <Icon name="ios-more" color="white" size={22} />
+            <Icon name="md-more" color="white" size={22} />
           </Right>
         </Header>
         <Content padder>
           <View style={styles.content}>
-            <Text style={styles.text}>Media Screen</Text>
+            <ListItem
+              withRight
+              title={`Let's See What The Night Can Do`}
+              caption={`Jason Mraz`}
+            />
+            <ListItem
+              withRight
+              title={`Let's See What The Night Can Do`}
+              caption={`Jason Mraz`}
+            />
+            <ListItem
+              withRight
+              title={`Let's See What The Night Can Do`}
+              caption={`Jason Mraz`}
+            />
+            <ListItem
+              withRight
+              title={`Let's See What The Night Can Do`}
+              caption={`Jason Mraz`}
+            />
           </View>
         </Content>
       </Container>

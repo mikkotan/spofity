@@ -34,24 +34,22 @@ const styles = StyleSheet.create({
 });
 
 const CardItem = ({
-  source,
-  title,
-  subtitle,
+  data,
   navigate,
 }) => (
-  <TouchableHighlight onPress={() => navigate('Media')}>
+  <TouchableHighlight onPress={() => navigate('Media', { data })}>
     <View style={styles.wrapper}>
       <Image
-        source={source}
+        source={data.source}
         style={styles.image}
       />
       <Text style={styles.title}>
-        {title}
+        {data.title}
       </Text>
-      {subtitle.length > 0
+      {data.subtitle.length > 0
         && (
           <Text style={styles.subtitle}>
-            {subtitle}
+            {data.subtitle}
           </Text>
         )
       }
@@ -60,10 +58,8 @@ const CardItem = ({
 );
 
 CardItem.propTypes = {
-  source: PropTypes.any.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
   navigate: PropTypes.func.isRequired,
+  data: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 CardItem.defaultProps = {

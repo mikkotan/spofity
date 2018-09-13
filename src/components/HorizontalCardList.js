@@ -43,9 +43,7 @@ const HorizontalCardList = ({
       {listItems.map(item => (
         <CardItem
           key={item.id}
-          source={item.source}
-          title={item.title}
-          subtitle={item.subtitle}
+          data={item}
           navigate={navigate}
         />
       ))}
