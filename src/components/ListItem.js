@@ -2,7 +2,50 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet } from 'react-native';
 import { View, Text, Right, Left } from 'native-base';
-import Icon from 'react-native-vector-icons/Ionicons';
+
+const ListItem = ({
+  title,
+  caption,
+  hasAvatar,
+  hasOptions,
+  avatar,
+  optionIcon,
+}) => (
+  <View style={styles.container}>
+    <View style={styles.content}>
+      {hasAvatar && 
+        <Left style={styles.left}>
+          {avatar}
+        </Left>
+      }
+      <View style={styles.details}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.caption}>{caption}</Text>
+      </View>
+      {hasOptions &&
+        <Right style={styles.right}>
+          {optionIcon}
+        </Right>
+      }
+    </View>
+  </View>
+);
+
+ListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  caption: PropTypes.string.isRequired,
+  hasAvatar: PropTypes.bool,
+  hasOptions: PropTypes.bool,
+  avatar: PropTypes.func,
+  optionIcon: PropTypes.func,
+};
+
+ListItem.defaultProps = {
+  hasAvatar: false,
+  hasOptions: false,
+  avatar: null,
+  optionIcon: null,
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -38,43 +81,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-const ListItem = ({
-  title,
-  caption,
-  withLeft,
-  withRight,
-}) => (
-  <View style={styles.container}>
-    <View style={styles.content}>
-      {withLeft && 
-        <Left style={styles.left}>
-          <Icon name="ios-disc" size={25} color="white" />
-        </Left>
-      }
-      <View style={styles.details}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.caption}>{caption}</Text>
-      </View>
-      {withRight &&
-        <Right style={styles.right}>
-          <Icon name="md-more" size={25} color="#97989d" />
-        </Right>
-      }
-    </View>
-  </View>
-);
-
-ListItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  caption: PropTypes.string.isRequired,
-  withLeft: PropTypes.bool,
-  withRight: PropTypes.bool,
-};
-
-ListItem.defaultProps = {
-  withLeft: false,
-  withRight: false,
-};
 
 export default ListItem;

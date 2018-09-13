@@ -78,23 +78,35 @@ class MediaScreen extends Component {
         <Content padder>
           <View style={styles.content}>
             <ListItem
-              withRight
+              hasOptions
+              optionIcon={
+                <Icon name="md-more" size={25} color="#97989d" />
+              }
               title={`Let's See What The Night Can Do`}
               caption={`Jason Mraz`}
             />
             <ListItem
-              withRight
-              title={`Let's See What The Night Can Do`}
+              hasOptions
+              optionIcon={
+                <Icon name="md-more" size={25} color="#97989d" />
+              }
+              title={`Have It All`}
               caption={`Jason Mraz`}
             />
             <ListItem
-              withRight
-              title={`Let's See What The Night Can Do`}
+              hasOptions
+              optionIcon={
+                <Icon name="md-more" size={25} color="#97989d" />
+              }
+              title={`More Than Friends(feat. Meghan Trainor)`}
               caption={`Jason Mraz`}
             />
             <ListItem
-              withRight
-              title={`Let's See What The Night Can Do`}
+              hasOptions
+              optionIcon={
+                <Icon name="md-more" size={25} color="#97989d" />
+              }
+              title={`Unlonely`}
               caption={`Jason Mraz`}
             />
           </View>
